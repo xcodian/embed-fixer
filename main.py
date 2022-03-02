@@ -4,7 +4,7 @@ import inspect
 import discord
 from discord.ext import commands
 
-bot = commands.Bot('ef!')
+bot = discord.Client()
 
 def log(s: str, level: str = 'info'):
     fn = inspect.currentframe().f_back.f_code.co_name
@@ -14,10 +14,26 @@ def log(s: str, level: str = 'info'):
 
     print(f'[{fn}] [{level}] {s}')
 
-
 @bot.event
 async def on_ready():
     log(f'logged in as {bot.user}')
+
+@bot.event
+async def on_message(msg: discord.Message):
+    if msg.author.bot:
+        return
+
+    if msg.author.id == bot.user.id:
+        return
+
+    if 'https://media.discordapp.net' in msg.content:
+        # await msg.delete()
+        await msg.reply(
+            ':hammer_pick: Changed **media.discordapp.net** to **cdn.discordapp.com** so the media plays properly! You\'re welcome!\n' 
+            + msg.content.replace(
+                'https://media.discordapp.net', 'https://cdn.discordapp.com', 1
+            )
+        )
 
 if __name__ == '__main__':
     def write_config(_config):
