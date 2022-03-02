@@ -13,3 +13,9 @@ This is a simple Discord bot that fixes the URL and replies with the fixed link,
 ## Check it out!
 
 ![Demo Image](images/demo.png)
+
+## Self-hosting
+
+You can self-host the bot if you want, it's just one program file after all. Edit the `config.json` file created on startup and paste your bot token there. You can get a bot token at the [Discord Developer Portal](https://discord.com/developers/applications).
+
+Happy hosting!
