@@ -31,7 +31,7 @@ async def on_message(msg: discord.Message):
         await msg.reply(
             ':hammer_pick: Changed **media.discordapp.net** to **cdn.discordapp.com** so the media plays properly! You\'re welcome!\n' 
             + msg.content.replace(
-                'https://media.discordapp.net', 'https://cdn.discordapp.com', 1
+                'https://media.discordapp.net', 'https://cdn.discordapp.com'
             )
         )
 
